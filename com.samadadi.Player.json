@@ -1,0 +1,42 @@
+{
+  "app-id" : "com.samadadi.Player",
+  "runtime" : "org.gnome.Platform",
+  "runtime-version" : "43",
+  "sdk" : "org.gnome.Sdk",
+  "command" : "player",
+  "finish-args" : [
+    "--share=ipc",
+    "--device=dri",
+    "--share=network",
+    "--socket=fallback-x11",
+    "--socket=session-bus"
+  ],
+  "cleanup" : [
+    "/man",
+    "/include",
+    "/share/doc",
+    "/share/man",
+    "/lib/pkgconfig",
+    "/share/gtk-doc",
+    "/share/pkgconfig",
+    "*.la",
+    "*.a"
+  ],
+  "modules" : [
+    {
+      "name" : "player",
+      "builddir": true,
+      "buildsystem" : "simple",
+      "build-commands": [
+        "make",
+        "make install PREFIX=/app"
+      ],
+      "sources" : [
+        {
+          "type" : "dir",
+          "path" : "."
+        }
+      ]
+    }
+  ]
+}
