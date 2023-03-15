@@ -11,9 +11,6 @@ OBJs := $(SRCs:.c=.o)
 
 all: $(BIN)
 
-run: $(BIN)
-	$(abspath $(BIN))
-
 install: $(BIN)
 	mkdir -p $(BINDIR)
 	install $(BIN) $(BINDIR)/$(BIN)
